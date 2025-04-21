@@ -20,12 +20,12 @@ const url = process.env.SCRAPE_URL;
       heading: document.querySelector('h1')?.innerText || 'No h1 found',
       links: [...document.querySelectorAll('a')].map(a => a.href),
       images: [...document.querySelectorAll('img')]
-        .filter(img => {
-          const alt = img.alt?.toLowerCase() || '';
-          const src = img.src?.toLowerCase() || '';
-          return alt.includes('devops') || src.includes('devops');
-        })
-        .map(img => img.src)
+       .filter(img => {
+       const alt = (img.alt || '').toLowerCase();
+       const src = (img.src || '').toLowerCase();
+       return alt.includes('devops') || src.includes('devops');
+       })
+      .map(img => img.src)
     }));
 
     console.log('Scraped Data:', data);
