@@ -11,7 +11,7 @@ docker run -p 5000:5000 scraper-app
 ```
 
 ## Access the output
-Visit: [http://localhost:5000](http://16.170.242.165:5000)
+Visit: [http://16.170.242.165:5000](http://16.170.242.165:5000)
 
 ## Files
 - `scrape.js` - Node scraper using Puppeteer
