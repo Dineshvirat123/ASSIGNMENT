@@ -1,12 +1,16 @@
-from flask import Flask, jsonify
+rom flask import Flask, jsonify, request
 import json
 
 app = Flask(__name__)
 
+with open('scraped_data.json') as f:
+    data = json.load(f)
+
 @app.route('/')
-def get_data():
-    with open('scraped_data.json') as f:
-        data = json.load(f)
+def index():
+    field = request.args.get('field')
+    if field and field in data:
+        return jsonify({field: data[field]})
     return jsonify(data)
 
 if __name__ == '__main__':
